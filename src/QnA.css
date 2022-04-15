@@ -1,0 +1,18 @@
+.category {
+  list-style: none;
+  padding: 50px;
+}
+
+.category .category-header {
+  font-size: 2rem;
+  font-weight: bolder;
+  padding: 50px 0;
+}
+
+
+
+.qna-section{
+    overflow: scroll;
+    margin: 20px 0;
+    
+}
