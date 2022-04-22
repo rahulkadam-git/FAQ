@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import data from "./Data";
 import { Accordion } from "react-bootstrap";
 
 function QnA(props) {
-  const { data } = props;
+ 
   const [eventKeyCall, setEventKeyCall] = useState("");
 
+
+  console.log(data)
+
   const handlerCollapse = (index) => {
-    console.log(index);
     if (index === eventKeyCall) {
       setEventKeyCall("");
     } else {
@@ -19,6 +22,8 @@ function QnA(props) {
   };
 
   return (
+    <div>
+    <div className="header">Frequently Asked Questions</div>
     <div className="category">
       {data.map((item, index1) => (
         <li className="category-header" key={index1}>
@@ -37,8 +42,8 @@ function QnA(props) {
                     eventKey={uniqueKey(index1, index)}
                     onClick={() => handlerCollapse(uniqueKey(index1, index))}
                   >
-                    <Accordion.Header style={{fontWeight:"bolder"}}>{qna.Q}</Accordion.Header>
-                    <Accordion.Body>{qna.A}</Accordion.Body>
+                    <Accordion.Header>{qna.Q}</Accordion.Header>
+                    <Accordion.Body style={{fontSize:20}}>{qna.A}</Accordion.Body>
                   </Accordion.Item>
                 </Accordion>
               ))}
@@ -46,6 +51,7 @@ function QnA(props) {
           </div>
         </li>
       ))}
+    </div>
     </div>
   );
 }
